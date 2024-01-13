@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      semver:
+        description: 'Which version you want to increment? Use MAJOR, MINOR or PATCH'
+        required: true
+        default: 'PATCH'
+
+jobs:
+  release:
+    name: 'Release'
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      # Checkout sources
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+
+      # ...
+      - name: '👷‍♂️ Build'
+        run: |
+          echo "BUILD COMPLETE 👍"
+
+      # ...
+      - name: '🧪 TEST'
+        run: |
+          echo "TESTS PASSED 🎉"
+
+      # This action may not exist, please check
+      - name: '⚙ GENERATE RELEASE NOTES'
+        id: 'gen-notes'
+        uses: 'rui-costa/action-auto-generate-release-notes@{latest}'
+
+      - uses: 'rui-costa/action-automatic-semver-releases@{latest}'
+        with:
+          TOKEN: '${{ secrets.RELEASES_TOKEN }}'
+          SEMVER: '${{ github.event.inputs.semver }}'

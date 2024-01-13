@@ -1,6 +1,6 @@
 import pandas as pd
 from snowflake.connector.pandas_tools import write_pandas
-from snowflake.extensions import SnowflakeConnection
+from snowflake.extensions import SnowflakeConnection  # type: ignore
 
 
 def load_to_snowflake(
