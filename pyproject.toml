@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "blogs-python-github-packages"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["jduran9987 <jduran9987@gmail.com>"]
 readme = "README.md"
@@ -16,6 +16,7 @@ mypy = "^1.8.0"
 pytest = "^7.4.4"
 pytest-cov = "^4.1.0"
 pandas-stubs = "^2.1.4.231227"
+pytest-custom-exit-code = "^0.3.0"
 
 [build-system]
 requires = ["poetry-core"]
