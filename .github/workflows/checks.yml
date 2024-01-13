@@ -1,0 +1,41 @@
+name: CI Checks
+
+on:
+  pull_request:
+    types:
+      - opened
+      - closed
+      - synchronize
+    branches:
+      - main
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+      
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root
+      
+      - name: Run Linter
+        run: poetry run flake8 blogs_python_github_packages  
+      
+      - name: Run Type Checker
+        run: poetry run mypy blogs_python_github_packages  
+      
+      - name: Run Tests
+        run: poetry run pytest --cov=blogs_python_github_packages --suppress-no-test-exit-code

@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "blogs-python-github-packages"
+version = "0.1.0"
+description = ""
+authors = ["jduran9987 <jduran9987@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+snowflake-connector-python = {extras = ["pandas"], version = "^3.6.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.0.0"
+mypy = "^1.8.0"
+pytest = "^7.4.4"
+pytest-cov = "^4.1.0"
+pandas-stubs = "^2.1.4.231227"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
