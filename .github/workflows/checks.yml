@@ -8,6 +8,8 @@ on:
       - synchronize
     branches:
       - main
+    paths:
+      - "blogs_python_github_packages/**"
 
 jobs:
   checks:
