@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "blogs-python-github-packages"
-version = "0.3.0"
+version = "0.4.0"
 description = ""
 authors = ["jduran9987 <jduran9987@gmail.com>"]
 readme = "README.md"
